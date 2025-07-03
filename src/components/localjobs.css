@@ -1,0 +1,28 @@
+.local-jobs {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .job-listing {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .job-listing h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .job-listing p {
+    margin: 5px 0;
+  }
+  
+  .job-listing a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .job-listing a:hover {
+    text-decoration: underline;
+  }
+  

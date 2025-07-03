@@ -1,0 +1,436 @@
+
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap';
+/* MentorsPage.css */
+.mentors-container {
+    padding: 60px 15px;
+    background-color: #ffffff; /* Light gray background for contrast */
+    min-height: 100vh;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4e4b4b; /* Black color for the title */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    border: 1px solid #ddd; /* Subtle border for a clean look */
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card-body {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333; /* Dark gray for mentor names */
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #777; /* Lighter gray for the field text */
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #ddd; /* Light border around the image */
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .btn-primary {
+    background-color: #333; /* Dark gray button */
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #555; /* Slightly lighter on hover */
+  }
+  
+  .btn-secondary {
+    background-color: #000; /* Black button */
+    color: #fff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #444; /* Slightly lighter on hover */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+  /* MentorsPage.css */
+.mentors-container {
+    padding: 60px 15px;
+    background-color: #ffffff; /* Light gray background for contrast */
+    min-height: 100vh;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000; /* Black color for the title */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+     font-family: 'Montserrat', sans-serif;
+  }
+  
+  .card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    border: 1px solid #ddd; /* Subtle border for a clean look */
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card-body {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333; /* Dark gray for mentor names */
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #777; /* Lighter gray for the field text */
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #ddd; /* Light border around the image */
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .btn-primary {
+    background-color: #333; /* Dark gray button */
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #555; /* Slightly lighter on hover */
+  }
+  
+  .btn-secondary {
+    background-color: #000; /* Black button */
+    color: #fff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #444; /* Slightly lighter on hover */
+  }
+  
+  /* Button Layout for Desktop and Mobile */
+  .row {
+    margin-top: 15px;
+  }
+  
+  .col-6 {
+    padding: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  
+    .card-body {
+      padding: 15px;
+    }
+  }
+
+.notification-icon {
+  position: absolute;
+
+  right: 20px;
+  cursor: pointer;
+}
+/* MentorsPage.css */
+
+/* General styles */
+.mentors-container {
+  position: relative;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+/* Notification icon */
+.notification-icon {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Make sure the mentors grid adjusts for mobile screens */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-sm-12,
+.col-md-6,
+.col-lg-4 {
+  padding: 10px;
+}
+
+.no-results {
+  text-align: center;
+  width: 100%;
+}
+
+/* For screens smaller than 768px (Tablets and smaller devices) */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem; /* Reduce font size on smaller screens */
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  /* Adjust the grid layout for smaller devices */
+  .col-sm-12 {
+    flex: 0 0 100%; /* Full width on mobile */
+    max-width: 100%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%; 
+    max-width: 50%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 33.33%; 
+    max-width: 33.33%;
+  }
+
+  .notification-icon {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+/* For screens smaller than 480px (Phones) */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.2rem; /* Further reduce font size on very small devices */
+  }
+
+  .search-bar {
+    padding: 5px;
+  }
+
+  /* Further tweak the grid layout on very small screens */
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%; /* Full width on very small screens */
+    max-width: 100%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.notification-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 50%;
+  animation: beep 1s infinite alternate;
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.3);
+}
+
+@keyframes beep {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 6px rgba(255, 0, 0, 0.5);
+  }
+}
+/* Notification Icon & Badge Styles */
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ensure the bell icon remains visible on top */
+.bell-icon {
+  position: relative;
+  z-index: 3;
+}
+
+/* Animated badge as a small pulsing circle.
+   It’s positioned offset (top/right) so it doesn’t cover the bell icon. */
+.notification-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseSmall 1.5s infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Pulse animation for the small badge */
+@keyframes pulseSmall {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Notifications Panel */
+.notifications-panel {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.notifications-panel.show {
+  display: block;
+  opacity: 1;
+}
+
+.notifications-panel h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.notifications-panel ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.notifications-panel li {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.notifications-panel li:last-child {
+  border-bottom: none;
+}
+
+/* Additional Styles */
+.search-bar {
+  margin-top: 20px;
+}
+
+.no-results {
+  text-align: center;
+  margin: 20px 0;
+}

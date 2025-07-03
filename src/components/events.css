@@ -1,0 +1,100 @@
+/* events.css */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+}
+
+.event-date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3c3d3f;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    height: 60px;
+    width: 60px;
+}
+
+.event-date-box .month {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.event-date-box .day {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.event-content {
+    flex: 1;
+    z-index: 1;
+    background-color: #fcfdff96;
+    border-radius: 7px;
+    padding: 15px;
+}
+
+.event-type {
+    font-size: 0.9rem;
+    color: #db2222;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.event-time, .event-location {
+    font-size: 0.9rem;
+    color: #636262;
+    margin-bottom: 5px;
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 1px; /* Width of the scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffffff; /* Thumb color */
+    border-radius: 4px; /* Optional: Rounded corners for the thumb */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ddd; /* Thumb color when hovered */
+  }
+  
+  .custom-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ffffff #f1f1f1; /* Firefox */
+  }
+  
+
+  .share-btn{
+    margin-left: 80px;
+
+  }

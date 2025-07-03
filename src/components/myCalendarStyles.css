@@ -1,0 +1,72 @@
+/* myCalendarStyles.css */
+.calendar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .rbc-calendar {
+    background-color: #fff;
+    border: 1px solid #eee;
+    font-family: "Helvetica", "Arial", sans-serif;
+  }
+  
+  /* Toolbar styling: red header with white text */
+  .rbc-toolbar {
+    background-color: #ff4d4f;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rbc-toolbar button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .rbc-toolbar button:focus {
+    outline: none;
+  }
+  .rbc-toolbar-label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .rbc-btn-group button {
+    margin-right: 5px;
+  }
+  
+  /* Event styling */
+  .rbc-event {
+    background-color: #1890ff;
+    border-radius: 4px;
+    color: #fff;
+    padding: 2px 5px;
+    font-size: 0.85em;
+  }
+  
+  /* Floating "+" button */
+  .floating-add-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2em;
+    line-height: 0.9;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .floating-add-btn:hover {
+    background-color: #d9363e;
+  }
+  

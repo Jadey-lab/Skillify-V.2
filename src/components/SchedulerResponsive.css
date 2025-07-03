@@ -1,0 +1,50 @@
+
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .ant-select,
+  .ant-btn,
+  .ant-tabs-nav {
+    width: 100% !important;
+  }
+
+  .ant-card {
+    margin-bottom: 1rem !important;
+  }
+
+  .ant-table {
+    overflow-x: auto;
+  }
+
+  .task-table {
+    width: 100%;
+  }
+
+  .focus-area-stats .ant-card-head {
+    font-size: 14px;
+  }
+
+  .text-lg {
+    font-size: 1rem !important;
+  }
+
+  .font-semibold {
+    font-weight: 600 !important;
+  }
+
+  .p-4 {
+    padding: 1rem !important;
+  }
+
+  .mt-6 {
+    margin-top: 1.5rem !important;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+}

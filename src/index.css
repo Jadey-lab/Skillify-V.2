@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+p{
+  color:rgb(123, 126, 126);
+}
+
+title{
+  font-weight: bold;
+  color: black;
+}
+
+.mentor-logo img {
+  
+  width: 175px !important;
+}
+
+.career-portal-title {
+  color: rgb(5, 174, 180) !important;
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+}

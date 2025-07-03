@@ -1,0 +1,53 @@
+
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #c9aece
+}
+
+.profile-button {
+    background: rgb(165, 164, 165);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #c2bac4
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #423944;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #757075;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #686269
+}
+.upload-button {
+    cursor:crosshair;
+    font-size: 24px; /* Adjust the font size to match the icon */
+    color: grey; /* You can change the color of the icon */
+  }
+  
+  .add-icon {
+    color: grey; /* Set the icon color to grey */
+    font-size: 24px; /* Match the font size you want */
+  }
+  

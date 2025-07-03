@@ -1,0 +1,65 @@
+
+
+.career-list {
+    list-style: none; /* Removes bullets */
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .career-list li {
+    margin-bottom: 0.5em;
+    position: relative;
+    padding-left: 1em;
+  }
+  .career-list li:hover {
+    background-color: #02256b;
+    border-radius: 4px;
+    padding-left: 0.5em;
+  }
+  /* CareersInSTEMWidget.css */
+
+.careers-carousel {
+  padding: 1rem;
+}
+
+.career-card {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  .career-card {
+    max-width: 90%;
+    font-size: 14px;
+  }
+
+  .career-card .ant-card-body {
+    padding: 16px;
+  }
+
+  .career-card h3,
+  .career-card .ant-typography-title {
+    font-size: 18px;
+  }
+
+  .career-card p,
+  .career-card .ant-typography-paragraph {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-card {
+    max-width: 100%;
+  }
+
+  .career-card h3,
+  .career-card .ant-typography-title {
+    font-size: 16px;
+  }
+
+  .career-card .ant-tag {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+}

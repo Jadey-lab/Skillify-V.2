@@ -1,0 +1,214 @@
+import React, { useState, useEffect } from 'react';
+import { Card, CardBody, CardTitle, CardText, Button, Row, Col } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
+import { db } from './firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+
+const MentorsCard = ({ mentor }) => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
+  const [isPayGateOpen, setIsPayGateOpen] = useState(false);
+  const [bookingData, setBookingData] = useState({
+    name: '',
+    email: '',
+    date: '',
+    fieldOfStudy: '',
+    yearOfStudy: '',
+    assistanceType: '',
+  });
+  const [userId, setUserId] = useState(null);
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+
+  const [coffeeAmount, setCoffeeAmount] = useState(45);
+  const [donationAmount, setDonationAmount] = useState(9);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        setUserId(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const amount = parseFloat(coffeeAmount);
+    const donation = amount * 0.20;
+    setDonationAmount(donation.toFixed(2));
+  }, [coffeeAmount]);
+
+  const toggleBookSession = () => setIsBookSessionOpen(!isBookSessionOpen);
+  const togglePayGate = () => setIsPayGateOpen(!isPayGateOpen);
+
+  const handleChange = (e) => {
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
+  };
+
+  const triggerAlert = (message, severity = 'success') => {
+    setSnackbarMessage(message);
+    setSnackbarSeverity(severity);
+    setSnackbarOpen(true);
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setSnackbarOpen(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!userId) {
+      triggerAlert("You need to be logged in to book a session", "error");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, 'mentorBookings'), {
+        ...bookingData,
+        mentorId: mentor.name,
+        uid: userId,
+        timestamp: new Date(),
+      });
+      triggerAlert("Booking submitted successfully!", "success");
+      toggleBookSession();
+      setBookingData({
+        name: '',
+        email: '',
+        date: '',
+        fieldOfStudy: '',
+        yearOfStudy: '',
+        assistanceType: '',
+      });
+    } catch (error) {
+      console.error('Error adding booking: ', error);
+      triggerAlert("Failed to submit booking", "error");
+    }
+  };
+
+  const handleCoffeePayment = () => {
+    if (coffeeAmount < 45) {
+      triggerAlert("Minimum coffee amount is R45", "error");
+      return;
+    }
+
+    // PayFast Integration:
+    // Replace these test credentials and URLs with your live production values.
+    const merchantId = "29069369"; // Example test merchant ID
+    const merchantKey = "z5gequa4vjfnt"; // Example test merchant key
+    const payfastUrl = "https://www.payfast.co.za/eng/process";
+
+    // Include the mentor's mentorId in the item name for tagging:
+    const itemName = `Buy Coffee Donation - MentorID: ${mentor.name}`;
+
+    const params = {
+      merchant_id: merchantId,
+      merchant_key: merchantKey,
+      amount: coffeeAmount,
+      item_name: itemName,
+      email_confirmation: 1,
+      confirmation_address: "info@yourplatform.com", 
+      return_url: `https://shadowascientist.org/payment%20success`,
+
+      cancel_url: `https://shadowascientist.org/payment%20canceled`,     
+        
+    
+      custom_str1: mentor.mentorId,
+      custom_str2: mentor.mentorId
+    };
+
+    const queryString = new URLSearchParams(params).toString();
+    window.location.href = `${payfastUrl}?${queryString}`;
+  };
+
+  return (
+    <>
+      <Card className="mentor-card mb-4" style={{ width: '100%' }}>
+        <img src={mentor.image} alt={mentor.name} className="card-img-top" />
+        <CardBody>
+          <CardTitle tag="h5" style={{ fontSize: '1.5rem', color: 'black', textAlign: 'center', marginBottom: '1rem' }}>
+            {mentor.name}
+          </CardTitle>
+          <CardText>{mentor.field}</CardText>
+          <Row className="mb-3" style={{ justifyContent: 'space-between' }}>
+            <Col xs="6">
+              <Button color="primary" block onClick={toggleBookSession}>
+                Book Session
+              </Button>
+            </Col>
+            <Col xs="6">
+              <Button color="secondary" block onClick={togglePayGate}>
+                Buy Coffee
+              </Button>
+            </Col>
+          </Row>
+        </CardBody>
+
+        {/* Buy Coffee Modal */}
+        <Modal isOpen={isPayGateOpen} toggle={togglePayGate} className="modal-dialog-centered">
+          <ModalHeader toggle={togglePayGate}>Buy Coffee for {mentor.name}</ModalHeader>
+          <ModalBody>
+            <Form>
+              <FormGroup>
+                <Label for="coffeeAmount">Coffee Amount (Min R45)</Label>
+                <Input
+                  type="number"
+                  name="coffeeAmount"
+                  id="coffeeAmount"
+                  min="45"
+                  value={coffeeAmount}
+                  onChange={(e) => setCoffeeAmount(e.target.value)}
+                />
+              </FormGroup>
+              <p style={{ marginTop: '1rem' }}>
+                <strong>Donation to Marketing:</strong> R{donationAmount}
+              </p>
+              <p style={{ fontSize: '0.9rem', marginTop: '1rem', color: '#555' }}>
+                <em>
+                  By buying coffee, you're not just fueling our amazing mentors — you're supporting free access to mentorship for students
+                  across the country. 20% of your contribution goes toward maintaining the platform, covering maintenance costs, and raising funds to add new features for students to benefit from. ❤️
+                </em>
+              </p>
+            </Form>
+          </ModalBody>
+          <ModalFooter>
+            <Row className="w-100">
+              <Col xs="6" className="text-end">
+                <Button color="secondary" onClick={togglePayGate}>
+                  Cancel
+                </Button>
+              </Col>
+              <Col xs="6" className="text-start">
+                <Button color="success" onClick={handleCoffeePayment}>
+                  Buy Coffee
+                </Button>
+              </Col>
+            </Row>
+          </ModalFooter>
+        </Modal>
+      </Card>
+
+      {/* Snackbar */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
+    </>
+  );
+};
+
+export default MentorsCard;

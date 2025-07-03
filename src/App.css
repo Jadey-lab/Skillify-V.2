@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 150vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #a9bcc2;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* App.css */
+.custom-title {
+  color: black;  /* Set the title color to black */
+  font-weight: bold;  /* Optional: make the title bold */
+  font-size: 24px;  /* Optional: adjust the font size */
+}
+/* App.css */
+.mentor-logo {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mentor-logo span {
+  color: #000;  /* Black color for the text */
+  font-size: 20px;  /* Adjust the text size */
+}
+
+.mentor-logo svg {
+  color: #000;  /* Black color for the icon */
+  font-size: 24px;  /* Adjust the icon size */
+}

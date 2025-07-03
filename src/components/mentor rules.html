@@ -1,0 +1,9 @@
+    // 🔹 MENTOR REQUEST ACTIONS
+    match /mentorRequestActions/{actionId} {
+      allow create: if request.resource.data.requestId is string &&
+        request.resource.data.status in ['Accepted', 'Waitlisted', 'Rejected'] &&
+        request.resource.data.mentorId is string;
+      allow read: if true;
+      allow update: if request.resource.data.status in ['Accepted', 'Waitlisted', 'Rejected'];
+      allow delete: if request.auth != null;
+    }
