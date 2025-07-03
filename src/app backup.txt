@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 import DashboardLayoutBranding from './Dashboard';
+
+
 
 import AuthForm from './AuthForm';
 import ChapterTabsGrid from './ChapterTabsGrid';
@@ -12,18 +14,17 @@ import GalleryPage from './pages/GalleryPage';
 import HighlightsPage from './pages/HighlightsPage';
 import ResourcesPage from './pages/ResourcesPage';
 
+
+
 import './firebase';
 import './App.css';
-
 import Button from '@mui/material/Button';
-import LogoutIcon from '@mui/icons-material/Logout';  // Import the icon
 
 function App() {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
   const auth = getAuth();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const location = useLocation(); // <-- get current path
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -51,16 +52,15 @@ function App() {
       .then(() => {
         setUser(null);
         setRole(null);
-        navigate('/auth');  // Redirect to AuthForm after logout
       })
       .catch((error) => {
         console.error(error.message);
       });
   };
 
-  // Show logout button on these routes
+  // Define paths where you want the logout button to be visible
   const showLogoutButton =
-    location.pathname === '/dashboard' || location.pathname === '/'; // add more as needed
+    location.pathname === '/Dashboard' || location.pathname === '/'; // Add more paths here if needed
 
   return (
     <div className="App">
@@ -75,17 +75,18 @@ function App() {
             <Route path="/chapter/:chapterId/gallery" element={<GalleryPage />} />
             <Route path="/chapter/:chapterId/highlights" element={<HighlightsPage />} />
             <Route path="/chapter/:chapterId/resources" element={<ResourcesPage />} />
-
+           
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
 
+          {/* Conditionally render the logout button only on dashboard page */}
           {showLogoutButton && (
-            <div className="logout-button-container" style={{ position: 'absolute', left: '20px' }}>
+            <div className="logout-button-container">
               <Button
                 variant="contained"
                 color="primary"
                 onClick={handleSignOut}
-                startIcon={<LogoutIcon />}  // Use the icon here
+                style={{ position: 'absolute', left: '20px' }}
               >
                 Log Out
               </Button>
@@ -94,10 +95,7 @@ function App() {
         </>
       ) : (
         <Routes>
-          {/* AuthForm route */}
-          <Route path="/auth" element={<AuthForm setUser={setUser} />} />
-          {/* Redirect anything else to auth */}
-          <Route path="*" element={<Navigate to="/auth" />} />
+          <Route path="*" element={<AuthForm setUser={setUser} />} />
         </Routes>
       )}
     </div>
