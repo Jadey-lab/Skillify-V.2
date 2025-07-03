@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
-import DashboardLayoutBranding from './components/Dashboard';
+import DashboardLayoutBranding from './Dashboard';
 
 
 
@@ -60,7 +60,7 @@ function App() {
 
   // Define paths where you want the logout button to be visible
   const showLogoutButton =
-    location.pathname === '/dashboard' || location.pathname === '/'; // Add more paths here if needed
+    location.pathname === '/Dashboard' || location.pathname === '/'; // Add more paths here if needed
 
   return (
     <div className="App">
