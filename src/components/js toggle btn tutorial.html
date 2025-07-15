@@ -1,0 +1,12 @@
+<button id="toggleBtn">Off</button>
+
+<script>
+  const btn = document.getElementById('toggleBtn');
+  let toggled = false;
+
+  btn.addEventListener('click', () => {
+    toggled = !toggled; // toggle state
+    btn.textContent = toggled ? 'On' : 'Off';
+    console.log('Button toggled:', toggled);
+  });
+</script>

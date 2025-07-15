@@ -6,7 +6,7 @@ import MentorsCard from './MentorsCard';
 import { Container, Row, Col, InputGroup, Input, InputGroupText, Button } from 'reactstrap';
 import { Search, Bell } from 'lucide-react';
 import './MentorsPage.css';
-
+import MentorConnect from './MentorConnect';
 
 const mentorsData = [
   {
@@ -456,6 +456,7 @@ const MentorsFeedbackPage = () => {
           <p className="no-results">No mentors found.</p>
         )}
       </Row>
+       <MentorConnect /> 
     </Container>
   );
 };

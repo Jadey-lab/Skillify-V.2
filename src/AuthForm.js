@@ -122,7 +122,7 @@ const AuthForm = ({ setUser }) => {
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
                 <Typography variant="h4" component="div" gutterBottom>
                   Shadow A Scientist
-                  <h6 style={{ color: 'grey' }}>SKILLIFY Beta v2.0</h6>
+                  <h6 style={{ color: 'grey' }}>SKILLIFY Beta v2.5 - Desktop Version</h6>
                 </Typography>
 
                 <Typography variant="subtitle1" sx={{ mb: 3 }}>
@@ -187,7 +187,7 @@ const AuthForm = ({ setUser }) => {
                 </Box>
 
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                  <Link href="https://drive.google.com/file/d/1sNqtn1fJqapMROUQ-CmnDMTeYIohz5rL/view?usp=sharingf" variant="body2">
+                  <Link href="https://drive.google.com/file/d/1KGGexQM_neAbET7AmI8YbZ5t3ZB1ZgmV/view?usp=sharing" variant="body2">
                     Terms of use
                   </Link>
                   <Link href="https://drive.google.com/file/d/1VwTNFzZcnWEZtANgMUG582L9q1eZ_KOg/view?usp=sharing" variant="body2">

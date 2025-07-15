@@ -3,7 +3,6 @@ import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 import DashboardLayoutBranding from './Dashboard';
-
 import AuthForm from './AuthForm';
 import ChapterTabsGrid from './ChapterTabsGrid';
 
@@ -12,11 +11,13 @@ import GalleryPage from './pages/GalleryPage';
 import HighlightsPage from './pages/HighlightsPage';
 import ResourcesPage from './pages/ResourcesPage';
 
+
+
 import './firebase';
 import './App.css';
 
 import Button from '@mui/material/Button';
-import LogoutIcon from '@mui/icons-material/Logout';  // Import the icon
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -58,9 +59,11 @@ function App() {
       });
   };
 
-  // Show logout button on these routes
+  // Show logout button on these routes — add more routes if needed
   const showLogoutButton =
-    location.pathname === '/dashboard' || location.pathname === '/'; // add more as needed
+    location.pathname === '/dashboard' ||
+    location.pathname === '/' ||
+    location.pathname === '/mentorconnect';  // Added /mentorconnect here
 
   return (
     <div className="App">
@@ -68,7 +71,13 @@ function App() {
         <>
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" />} />
-            {role === 'Student' && <Route path="/dashboard" element={<DashboardLayoutBranding />} />}
+
+            {role === 'Student' && (
+              <>
+                <Route path="/dashboard" element={<DashboardLayoutBranding />} />
+           
+              </>
+            )}
 
             <Route path="/chapters" element={<ChapterTabsGrid />} />
             <Route path="/chapter/:chapterId/events" element={<EventsPage />} />
@@ -76,6 +85,7 @@ function App() {
             <Route path="/chapter/:chapterId/highlights" element={<HighlightsPage />} />
             <Route path="/chapter/:chapterId/resources" element={<ResourcesPage />} />
 
+            {/* Fallback for any other route */}
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
 
@@ -85,7 +95,7 @@ function App() {
                 variant="contained"
                 color="primary"
                 onClick={handleSignOut}
-                startIcon={<LogoutIcon />}  // Use the icon here
+                startIcon={<LogoutIcon />}
               >
                 Log Out
               </Button>

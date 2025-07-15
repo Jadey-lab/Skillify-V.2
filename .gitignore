@@ -24,3 +24,6 @@ yarn-error.log*
 
 # dataset or large files
 src/dataset/
+
+# Local Netlify folder
+.netlify

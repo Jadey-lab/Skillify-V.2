@@ -21,7 +21,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import LogoutIcon from '@mui/icons-material/Logout';
 
 // Toolpad
 import { AppProvider } from '@toolpad/core/AppProvider';
@@ -83,8 +82,6 @@ const NAVIGATION = [
   { kind: 'divider' },
   { kind: 'header', title: 'Profile settings' },
   { segment: 'UserProfile', title: 'User Profile', icon: <AccountCircleIcon /> },
-
-
 ];
 
 const demoTheme = createTheme({
@@ -120,7 +117,15 @@ function DemoPageContent({ pathname }) {
 
   return (
     pathMapping[decodedPathname] || (
-      <Box sx={{ py: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+      <Box
+        sx={{
+          py: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+        }}
+      >
         <Typography>Dashboard content for {decodedPathname}</Typography>
       </Box>
     )
@@ -136,13 +141,12 @@ function DashboardLayoutBasic(props) {
   const router = useDemoRouter('/dashboard');
   const demoWindow = window !== undefined ? window() : undefined;
 
-  // Handle logout by signing out and routing to /auth
   const handleNavigation = async (url, metadata) => {
     if (metadata?.segment === 'logout') {
       try {
         await signOut(auth);
         router.navigate('/auth');
-        return false; // Prevent default navigation to /logout
+        return false;
       } catch (error) {
         console.error('Failed to sign out:', error);
         return false;
@@ -156,21 +160,26 @@ function DashboardLayoutBasic(props) {
       navigation={NAVIGATION}
       branding={{
         logo: (
-          <div className="mentor-logo">
-            <img
-              src={logo}
-              alt="Logo"
-              style={{ width: 300, height: 'auto', marginTop: -63 }}
-            />
-          </div>
+          <img
+            src={logo}
+            alt="Shadow A Scientist Logo"
+            style={{
+              width: 130, 
+              height: 700,
+              display: 'block',
+              objectFit: 'cover', 
+              margin: '0 auto',
+              padding: '1px ', 
+            }}
+          />
         ),
-        title: <span className="career-portal-title"></span>,
+        title: '', 
         homeUrl: '/dashboard',
       }}
       router={router}
       theme={demoTheme}
       window={demoWindow}
-      onNavigate={handleNavigation} // Custom logout logic here
+      onNavigate={handleNavigation}
     >
       <UserProfileWizard />
       <DashboardLayout>
