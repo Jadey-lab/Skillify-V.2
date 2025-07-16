@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import { onAuthStateChanged } from "firebase/auth";
 import {
   collection,
@@ -223,6 +223,18 @@ const MyMentorshipMessages = () => {
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Space direction="vertical" size="small">
+                            {msg.fetchLink && (
+                              <Link href={msg.fetchLink} target="_blank">
+                                <InsertDriveFileIcon fontSize="small" style={{ marginRight: 4 }} />
+                                Fetch Link
+                              </Link>
+                            )}
+                            {msg.meetLink && (
+                              <Link href={msg.meetLink} target="_blank">
+                                <InsertDriveFileIcon fontSize="small" style={{ marginRight: 4 }} />
+                                Meet Link
+                              </Link>
+                            )}
                             {msg.resourceLink && (
                               <Link href={msg.resourceLink} target="_blank">
                                 <InsertDriveFileIcon fontSize="small" style={{ marginRight: 4 }} />
